@@ -2,15 +2,11 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using NLog.Layouts;
-
 namespace NLog.Slack.Tests
 {
     [TestClass]
     public class SlackTargetTests
     {
-        //// ----------------------------------------------------------------------------------------------------------
-
         [TestMethod]
         public void DefaultSettings_ShouldBeCorrect()
         {
@@ -22,9 +18,7 @@ namespace NLog.Slack.Tests
             slackTarget.Username.Should().Be(null);
             slackTarget.WebHookUrl.Should().Be(null);
         }
-
-        //// ----------------------------------------------------------------------------------------------------------
-
+        
         [TestMethod]
         public void CustomSettings_ShouldBeCorrect()
         {
@@ -53,9 +47,7 @@ namespace NLog.Slack.Tests
 
             
         }
-
-        //// ----------------------------------------------------------------------------------------------------------
-
+        
         [TestMethod, ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void InitializeTarget_EmptyWebHookUrl_ShouldThrowException()
         {
@@ -63,9 +55,7 @@ namespace NLog.Slack.Tests
 
             slackTarget.Initialize();
         }
-
-        //// ----------------------------------------------------------------------------------------------------------
-
+        
         [TestMethod, ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void InitializeTarget_IncorrectWebHookUrl_ShouldThrowException()
         {
@@ -76,9 +66,7 @@ namespace NLog.Slack.Tests
 
             slackTarget.Initialize();
         }
-
-        //// ----------------------------------------------------------------------------------------------------------
-
+        
         [TestMethod, ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void InitializeTarget_IncorrectChannel_ShouldThrowException()
         {
@@ -114,9 +102,6 @@ namespace NLog.Slack.Tests
 
             slackTarget.Initialize();
         }
-
-        //// ----------------------------------------------------------------------------------------------------------
-
         [TestMethod]
         public void InitializeTarget_CorrectChannelWithHash_TargetShouldInitialize()
         {
@@ -128,9 +113,6 @@ namespace NLog.Slack.Tests
 
             slackTarget.Initialize();
         }
-
-        //// ----------------------------------------------------------------------------------------------------------
-
         [TestMethod]
         public void InitializeTarget_CorrectChannelWithAt_TargetShouldInitialize()
         {
@@ -142,9 +124,6 @@ namespace NLog.Slack.Tests
 
             slackTarget.Initialize();
         }
-
-        //// ----------------------------------------------------------------------------------------------------------
-        
         [TestMethod]
         public void InitializeTarget_CorrectChannelWithVariable_TargetShouldInitialize()
         {
@@ -156,7 +135,5 @@ namespace NLog.Slack.Tests
 
             slackTarget.Initialize();
         }
-
-        //// ----------------------------------------------------------------------------------------------------------
     }
 }
