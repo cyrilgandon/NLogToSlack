@@ -23,7 +23,6 @@ namespace NLogToSlack.Tests
         public void CustomSettings_ShouldBeCorrect()
         {
             const string channel = "#log-${level}";
-            const bool compact = true;
             const string icon = ":ghost:";
             const string username = "NLogToSlack-${level}";
             const string webHookUrl = "http://slack.is.awesome.com";
