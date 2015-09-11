@@ -1,6 +1,6 @@
 ﻿using NLog.Common;
 
-namespace NLog.Slack.Tests
+namespace NLogToSlack.Tests
 {
     public class TestableSlackTarget : SlackTarget
     {

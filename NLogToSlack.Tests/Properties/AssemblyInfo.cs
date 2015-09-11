@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("NLog.Slack.Demo")]
-[assembly: AssemblyDescription("An NLog target for Slack - your logs in one place and instantly searchable, everywhere.")]
+[assembly: AssemblyTitle("NLogToSlack.Tests")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ifc0nfig")]
-[assembly: AssemblyProduct("NLog.Slack.Demo")]
+[assembly: AssemblyProduct("NLogToSlack.Tests")]
 [assembly: AssemblyCopyright("Copyright © Paul Price 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ed02aba2-b7ec-4b14-a903-0de2cb153039")]
+[assembly: Guid("d30d1476-14e3-48f1-891f-d8fca2f61b8a")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -1,17 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLog.Slack", "NLog.Slack\NLog.Slack.csproj", "{ABF234B7-949A-4DFA-AB15-A121513FFAFD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLogToSlack", "NLogToSlack\NLogToSlack.csproj", "{ABF234B7-949A-4DFA-AB15-A121513FFAFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLog.Slack.Demo", "NLog.Slack.Demo\NLog.Slack.Demo.csproj", "{A98A6A45-C50C-4E65-89FC-ECF67112BB25}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLogToSlack.Demo", "NLogToSlack.Demo\NLogToSlack.Demo.csproj", "{A98A6A45-C50C-4E65-89FC-ECF67112BB25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLog.Slack.Tests", "NLog.Slack.Tests\NLog.Slack.Tests.csproj", "{71098B57-1615-43FB-9E5D-62311C004603}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLogToSlack.Tests", "NLogToSlack.Tests\NLogToSlack.Tests.csproj", "{71098B57-1615-43FB-9E5D-62311C004603}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EDD014C2-FA42-4FDB-9EC1-D2E9F4F6BF7B}"
 	ProjectSection(SolutionItems) = preProject
-		NLog.Slack.xsd = NLog.Slack.xsd
+		NLogToSlack.xsd = NLogToSlack.xsd
 		README.md = README.md
 	EndProjectSection
 EndProject

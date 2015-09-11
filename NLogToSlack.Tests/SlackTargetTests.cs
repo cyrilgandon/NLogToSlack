@@ -1,8 +1,9 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NLog;
+using System;
 
-namespace NLog.Slack.Tests
+namespace NLogToSlack.Tests
 {
     [TestClass]
     public class SlackTargetTests
@@ -25,7 +26,7 @@ namespace NLog.Slack.Tests
             const string channel = "#log-${level}";
             const bool compact = true;
             const string icon = ":ghost:";
-            const string username = "NLog.Slack-${level}";
+            const string username = "NLogToSlack-${level}";
             const string webHookUrl = "http://slack.is.awesome.com";
 
             var slackTarget = new TestableSlackTarget
@@ -40,7 +41,7 @@ namespace NLog.Slack.Tests
             var logEvent = new LogEventInfo { Level = LogLevel.Info, Message = "This is a ${level} message" };
 
             slackTarget.Channel.Render(logEvent).Should().Be("#log-Info");
-            slackTarget.Username.Render(logEvent).Should().Be("NLog.Slack-Info");
+            slackTarget.Username.Render(logEvent).Should().Be("NLogToSlack-Info");
             slackTarget.Compact.Should().Be(compact);
             slackTarget.Icon.Should().Be(icon);
             slackTarget.WebHookUrl.Should().Be(webHookUrl);

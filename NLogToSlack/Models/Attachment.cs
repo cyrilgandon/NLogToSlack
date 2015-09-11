@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace NLog.Slack.Models
+namespace NLogToSlack.Models
 {
     /// <summary>
     /// https://api.slack.com/docs/attachments

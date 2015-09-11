@@ -1,12 +1,13 @@
-﻿using NLog.Common;
+﻿using NLog;
+using NLog.Common;
 using NLog.Config;
 using NLog.Layouts;
-using NLog.Slack.Models;
 using NLog.Targets;
+using NLogToSlack.Models;
 using System;
 using System.Diagnostics;
 
-namespace NLog.Slack
+namespace NLogToSlack
 {
     [Target("Slack")]
     public class SlackTarget : TargetWithLayout

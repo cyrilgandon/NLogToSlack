@@ -1,19 +1,19 @@
-NLog.Slack
+NLogToSlack
 ==========
 An NLog target for Slack - your logs in one place and instantly searchable, everywhere.
 
-![NLog.Slack](http://i.imgur.com/xRlfNrN.png)
+![NLogToSlack](http://i.imgur.com/xRlfNrN.png)
 
 Installation
 ============
-Via [NuGet](https://www.nuget.org/packages/NLog.Slack/): ```Install-Package NLog.Slack```
+Via [NuGet](https://www.nuget.org/packages/NLogToSlack/): ```Install-Package NLogToSlack```
 
 ... or just build it your self!
 
 Usage
 =====
 1. Create a [new Incoming Webhook integration](https://www.slack.com/integrations).
-2. Configure NLog to use `NLog.Slack`:
+2. Configure NLog to use `NLogToSlack`:
 
 ### NLog.config
 
@@ -23,7 +23,7 @@ Usage
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <extensions>
-    <add assembly="NLog.Slack" />
+    <add assembly="NLogToSlack" />
   </extensions>
 
   <targets async="true">
@@ -32,7 +32,7 @@ Usage
             layout="${message}"
             webHookUrl="https://xxx.slack.com/services/hooks/incoming-webhook?token=xxx"
             channel="#log"
-            username="NLog.Slack"
+            username="NLogToSlack"
             compact="false"
             icon=":ghost:" />
   </targets>

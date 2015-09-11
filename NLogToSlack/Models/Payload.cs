@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 using System.Text;
 
-namespace NLog.Slack.Models
+namespace NLogToSlack.Models
 {
     /// <summary>
     /// Payload parameter transformed to a JSON string in the POST request to Slack

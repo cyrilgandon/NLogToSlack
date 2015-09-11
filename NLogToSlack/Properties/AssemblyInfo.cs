@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("NLog.Slack")]
+[assembly: AssemblyTitle("NLogToSlack")]
 [assembly: AssemblyDescription("An NLog target for Slack - your logs in one place and instantly searchable, everywhere.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ifc0nfig")]
-[assembly: AssemblyProduct("NLog.Slack")]
+[assembly: AssemblyProduct("NLogToSlack")]
 [assembly: AssemblyCopyright("Copyright © Paul Price 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

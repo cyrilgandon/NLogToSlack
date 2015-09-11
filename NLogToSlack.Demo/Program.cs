@@ -1,15 +1,12 @@
-﻿using System;
+﻿using NLog;
+using System;
 
-namespace NLog.Slack.Demo
+namespace NLogToSlack.Demo
 {
     public static class Program
     {
-        //// ----------------------------------------------------------------------------------------------------------
-
         private static Logger _logger = LogManager.GetCurrentClassLogger();
-
-        //// ----------------------------------------------------------------------------------------------------------
-
+        
         public static void Main(string[] args)
         {
             _logger.Info("This is a piece of useful information.");
@@ -29,9 +26,7 @@ namespace NLog.Slack.Demo
             Console.WriteLine("Done - check your Slack channel!");
             Console.ReadLine();
         }
-
-        //// ----------------------------------------------------------------------------------------------------------
-
+        
         private static void CreateBigStackTrace(int lines)
         {
             if (lines < 1)
@@ -43,7 +38,5 @@ namespace NLog.Slack.Demo
                 CreateBigStackTrace(lines - 1);
             }
         }
-
-        //// ----------------------------------------------------------------------------------------------------------
     }
 }
