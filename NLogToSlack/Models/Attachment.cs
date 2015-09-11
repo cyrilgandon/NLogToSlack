@@ -14,6 +14,17 @@ namespace NLogToSlack.Models
     [DataContract]
     public class Attachment
     {
+        /// <summary>
+        /// The title is displayed as larger, bold text near the top of a message attachment
+        /// </summary>
+        [DataMember(Name = "title")]
+        public string Title { get; set; }
+
+        /// <summary>
+        /// By passing a valid URL (optional), the title will be hyperlinked.
+        /// </summary>
+        [DataMember(Name = "title_link")]
+        public string TitleLink { get; set; }
 
         /// <summary>
         /// A plain-text summary of the attachment. This text will be used in clients that don't show formatted text (eg. IRC, mobile notifications) and should not contain any markup.

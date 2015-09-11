@@ -22,9 +22,7 @@ namespace NLogToSlack
         public SimpleLayout Username { get; set; }
 
         public string Icon { get; set; }
-
-        public bool Compact { get; set; }
-
+        
         protected override void InitializeTarget()
         {
             if (string.IsNullOrWhiteSpace(this.WebHookUrl))
@@ -83,29 +81,47 @@ namespace NLogToSlack
             {
                 payload.Username = username;
             }
-
-            if (!this.Compact)
+            
+            var mainAttachment = new Attachment
             {
-                var color = GetSlackColorFromLogLevel(info.LogEvent.Level);
-                var attachment = new Attachment() { Fallback = message, Color = color };
-
-                string machineName = _currentProcess.MachineName != "." ? _currentProcess.MachineName : Environment.MachineName;
-                attachment.Fields.Add(new Field() { Title = "Process Name", Value = $"{machineName}\\{_currentProcess.ProcessName}", Short = true });
-                attachment.Fields.Add(new Field() { Title = "Process PID", Value = _currentProcess.Id.ToString(), Short = true });
-                payload.Attachments.Add(attachment);
-
-                var exception = info.LogEvent.Exception;
-                if (exception != null)
+                Title = info.LogEvent.Level.ToString(),
+                Color = GetSlackColorFromLogLevel(info.LogEvent.Level)
+            };
+            payload.Attachments.Add(mainAttachment);
+            if (info.LogEvent.Parameters != null)
+            {
+                foreach (var param in info.LogEvent.Parameters)
                 {
-                    var exceptionAttachment = new Attachment() { Fallback = exception.Message, Color = color };
-                    exceptionAttachment.Fields.Add(new Field() { Title = "Type", Value = exception.GetType().FullName, Short = true });
-
-                    if (!string.IsNullOrWhiteSpace(exception.StackTrace))
-                        exceptionAttachment.Text = exception.StackTrace;
-
-                    payload.Attachments.Add(exceptionAttachment);
+                    var slackLoggable = param as ISlackLoggable;
+                    if (slackLoggable != null)
+                    {
+                        var requestAttachment = slackLoggable.ToAttachment(info.LogEvent);
+                        payload.Attachments.Add(requestAttachment);
+                    }
                 }
+            }
 
+            var exception = info.LogEvent.Exception;
+            if (exception != null)
+            {
+                var attachment = new Attachment
+                {
+                    Title = exception.Message,
+                    Color = GetSlackColorFromLogLevel(LogLevel.Error)
+                };
+
+                attachment.Fields.Add(new Field
+                {
+                    Title = "Type",
+                    Value = exception.GetType().FullName,
+                    Short = true
+                });
+
+                if (!String.IsNullOrWhiteSpace(exception.StackTrace))
+                {
+                    attachment.Text = exception.StackTrace;
+                }
+                payload.Attachments.Add(attachment);
             }
 
             payload.SendTo(this.WebHookUrl);

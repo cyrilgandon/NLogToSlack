@@ -14,12 +14,11 @@ namespace NLogToSlack.Tests
             var slackTarget = new TestableSlackTarget();
 
             slackTarget.Channel.Should().Be(null);
-            slackTarget.Compact.Should().Be(false);
             slackTarget.Icon.Should().Be(null);
             slackTarget.Username.Should().Be(null);
             slackTarget.WebHookUrl.Should().Be(null);
         }
-        
+
         [TestMethod]
         public void CustomSettings_ShouldBeCorrect()
         {
@@ -30,25 +29,23 @@ namespace NLogToSlack.Tests
             const string webHookUrl = "http://slack.is.awesome.com";
 
             var slackTarget = new TestableSlackTarget
-                {
-                    Channel = channel,
-                    Compact = compact,
-                    Icon = icon,
-                    Username = username,
-                    WebHookUrl = webHookUrl
-                };
+            {
+                Channel = channel,
+                Icon = icon,
+                Username = username,
+                WebHookUrl = webHookUrl
+            };
 
             var logEvent = new LogEventInfo { Level = LogLevel.Info, Message = "This is a ${level} message" };
 
             slackTarget.Channel.Render(logEvent).Should().Be("#log-Info");
             slackTarget.Username.Render(logEvent).Should().Be("NLogToSlack-Info");
-            slackTarget.Compact.Should().Be(compact);
             slackTarget.Icon.Should().Be(icon);
             slackTarget.WebHookUrl.Should().Be(webHookUrl);
 
-            
+
         }
-        
+
         [TestMethod, ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void InitializeTarget_EmptyWebHookUrl_ShouldThrowException()
         {
@@ -56,18 +53,18 @@ namespace NLogToSlack.Tests
 
             slackTarget.Initialize();
         }
-        
+
         [TestMethod, ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void InitializeTarget_IncorrectWebHookUrl_ShouldThrowException()
         {
             var slackTarget = new TestableSlackTarget
-                {
-                    WebHookUrl = "IM A BIG FAT PHONY"
-                };
+            {
+                WebHookUrl = "IM A BIG FAT PHONY"
+            };
 
             slackTarget.Initialize();
         }
-        
+
         [TestMethod, ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void InitializeTarget_IncorrectChannel_ShouldThrowException()
         {
