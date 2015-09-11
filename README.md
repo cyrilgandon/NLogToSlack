@@ -2,7 +2,13 @@ NLogToSlack
 ==========
 An NLog target for Slack - your logs in one place and instantly searchable, everywhere.
 
+Use default Features
 ![NLogToSlack](exampleNlogToSlack.png)
+
+Or create your own attachment
+
+![NLogToSlack](exampleWithAuthor.png)
+![NLogToSlack](exampleWithImage.png)
 
 Installation
 ============

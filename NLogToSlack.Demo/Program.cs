@@ -23,8 +23,10 @@ namespace NLogToSlack.Demo
                 _logger.Error(ex, "KABOOM!");
             }
 
-            var customAttachemnetDemo = new CustomAttachmentDemo("Hey, you can create your own attachment too! Just pass me in the list of params of NLog methods");
+            var customAttachemnetDemo = new AttachmentDemoWithAuthor("Hey, you can create your own attachment too! Just pass me in the list of params of NLog methods");
             _logger.Info(customAttachemnetDemo);
+
+            _logger.Info(new AttachmentDemoWithImage());
 
             Console.WriteLine("Done - check your Slack channel!");
             Console.ReadLine();

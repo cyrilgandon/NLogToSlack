@@ -117,7 +117,7 @@ namespace NLogToSlack
                     Short = true
                 });
 
-                if (!String.IsNullOrWhiteSpace(exception.StackTrace))
+                if (!string.IsNullOrWhiteSpace(exception.StackTrace))
                 {
                     attachment.Text = exception.StackTrace;
                 }

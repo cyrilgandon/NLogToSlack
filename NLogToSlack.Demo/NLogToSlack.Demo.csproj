@@ -46,7 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomAttachmentDemo.cs" />
+    <Compile Include="AttachmentDemoWithImage.cs" />
+    <Compile Include="AttachmentDemoWithAuthor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

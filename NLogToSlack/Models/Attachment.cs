@@ -14,6 +14,8 @@ namespace NLogToSlack.Models
     [DataContract]
     public class Attachment
     {
+
+        #region Title parameters
         /// <summary>
         /// The title is displayed as larger, bold text near the top of a message attachment
         /// </summary>
@@ -25,6 +27,26 @@ namespace NLogToSlack.Models
         /// </summary>
         [DataMember(Name = "title_link")]
         public string TitleLink { get; set; }
+        #endregion
+
+        #region Author parameters
+        /// <summary>
+        /// Small text used to display the author's name.
+        /// </summary>
+        [DataMember(Name = "author_name")]
+        public string AuthorName { get; set; }
+        /// <summary>
+        /// A valid URL that will hyperlink the AuthorName. Will only work if AuthorName is present.
+        /// </summary>
+        [DataMember(Name = "author_link")]
+        public string AuthorLink { get; set; }
+        /// <summary>
+        /// A valid URL that displays a small 16x16px image to the left of the AuthorName. Will only work if AuthorName is present.
+        /// </summary>
+        [DataMember(Name = "author_icon")]
+        public string AuthorIcon { get; set; }
+
+        #endregion
 
         /// <summary>
         /// A plain-text summary of the attachment. This text will be used in clients that don't show formatted text (eg. IRC, mobile notifications) and should not contain any markup.
@@ -55,5 +77,19 @@ namespace NLogToSlack.Models
         /// </summary>
         [DataMember(Name = "fields")]
         public readonly List<Field> Fields = new List<Field>();
+
+        /// <summary>
+        /// A valid URL to an image file that will be displayed inside a message attachment. We currently support the following formats: GIF, JPEG, PNG, and BMP.
+        /// Large images will be resized to a maximum width of 400px or a maximum height of 500px, while still maintaining the original aspect ratio.
+        /// </summary>
+        [DataMember(Name = "image_url")]
+        public string ImageUrl { get; set; }
+
+        /// <summary>
+        /// A valid URL to an image file that will be displayed as a thumbnail on the right side of a message attachment. We currently support the following formats: GIF, JPEG, PNG, and BMP.
+        /// The thumbnail's longest dimension will be scaled down to 75px while maintaining the aspect ratio of the image. The filesize of the image must also be less than 500 KB.
+        /// </summary>
+        [DataMember(Name = "thumb_url")]
+        public string ThumbUrl { get; set; }
     }
 }
