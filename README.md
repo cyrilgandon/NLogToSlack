@@ -8,7 +8,7 @@ Installation
 ============
 Via [NuGet](https://www.nuget.org/packages/NLogToSlack/): ```Install-Package NLogToSlack```
 
-... or just build it your self!
+... or just build it yourself!
 
 Usage
 =====
