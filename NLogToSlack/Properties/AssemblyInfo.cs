@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("NLogToSlack")]
-[assembly: AssemblyDescription("An NLog target for Slack - your logs in one place and instantly searchable, everywhere.")]
+[assembly: AssemblyDescription("NLog message to slack made easy")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("ifc0nfig")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("NLogToSlack")]
-[assembly: AssemblyCopyright("Copyright © Paul Price 2014")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.1.0")]
-[assembly: AssemblyFileVersion("1.0.1.0")]
+[assembly: AssemblyVersion("4.1.0.0")]
+[assembly: AssemblyFileVersion("4.1.0.0")]
