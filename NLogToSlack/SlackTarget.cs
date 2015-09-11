@@ -85,7 +85,7 @@ namespace NLogToSlack
             var mainAttachment = new Attachment
             {
                 Title = info.LogEvent.Level.ToString(),
-                Color = GetSlackColorFromLogLevel(info.LogEvent.Level)
+                Color = info.LogEvent.Level.ToSlackColor()
             };
             payload.Attachments.Add(mainAttachment);
             if (info.LogEvent.Parameters != null)
@@ -107,7 +107,7 @@ namespace NLogToSlack
                 var attachment = new Attachment
                 {
                     Title = exception.Message,
-                    Color = GetSlackColorFromLogLevel(LogLevel.Error)
+                    Color = LogLevel.Error.ToSlackColor()
                 };
 
                 attachment.Fields.Add(new Field
@@ -125,25 +125,6 @@ namespace NLogToSlack
             }
 
             payload.SendTo(this.WebHookUrl);
-        }
-        
-        private static string GetSlackColorFromLogLevel(LogLevel level)
-        {
-            switch (level.Name.ToLowerInvariant())
-            {
-                case "warn":
-                    return "warning";
-
-                case "error":
-                case "fatal":
-                    return "danger";
-
-                case "info":
-                    return "#2a80b9";
-
-                default:
-                    return "#cccccc";
-            }
         }
     }
 }
