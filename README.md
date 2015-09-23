@@ -39,7 +39,6 @@ Usage
             webHookUrl="https://xxx.slack.com/services/hooks/incoming-webhook?token=xxx"
             channel="#log"
             username="NLogToSlack"
-            compact="false"
             icon=":ghost:" />
   </targets>
 
@@ -79,5 +78,4 @@ Key        | Description
 WebHookUrl | Grab your Webhook URL (__with the token__) from your Incoming Webhooks integration in Slack
 Channel    | The channel name (e.g #log) or user (e.g. @eth0) to send NLog messages to. Leave blank to use the integration default
 Username   | Name of the user that NLog messages comes from. Leave blank to use the integration default
-Compact    | Set to true to just send the NLog layout text (no process info, colors, etc)
 Icon       | Leave blank to use the integration default. Can either be a URL or Emoji
