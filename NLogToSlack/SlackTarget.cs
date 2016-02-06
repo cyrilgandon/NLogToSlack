@@ -22,6 +22,8 @@ namespace NLogToSlack
         public SimpleLayout Username { get; set; }
 
         public string Icon { get; set; }
+
+        public bool IncludeLevel { get; set; }
         
         protected override void InitializeTarget()
         {
@@ -81,13 +83,16 @@ namespace NLogToSlack
             {
                 payload.Username = username;
             }
-            
-            var mainAttachment = new Attachment
+
+            if (IncludeLevel)
             {
-                Title = info.LogEvent.Level.ToString(),
-                Color = info.LogEvent.Level.ToSlackColor()
-            };
-            payload.Attachments.Add(mainAttachment);
+                var mainAttachment = new Attachment
+                {
+                    Title = info.LogEvent.Level.ToString(),
+                    Color = info.LogEvent.Level.ToSlackColor()
+                };
+                payload.Attachments.Add(mainAttachment);
+            }
             if (info.LogEvent.Parameters != null)
             {
                 foreach (var param in info.LogEvent.Parameters)
