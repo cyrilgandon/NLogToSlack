@@ -23,7 +23,7 @@ namespace NLogToSlack
 
         public string Icon { get; set; }
 
-        public bool IncludeLevel { get; set; }
+        public bool ExcludeLevel { get; set; }
         
         protected override void InitializeTarget()
         {
@@ -84,7 +84,7 @@ namespace NLogToSlack
                 payload.Username = username;
             }
 
-            if (IncludeLevel)
+            if (!ExcludeLevel)
             {
                 var mainAttachment = new Attachment
                 {
