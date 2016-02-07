@@ -17,6 +17,7 @@ namespace NLogToSlack.Tests
             slackTarget.Icon.Should().Be(null);
             slackTarget.Username.Should().Be(null);
             slackTarget.WebHookUrl.Should().Be(null);
+            slackTarget.ExcludeLevel.Should().BeFalse();
         }
 
         [TestMethod]
@@ -26,13 +27,15 @@ namespace NLogToSlack.Tests
             const string icon = ":ghost:";
             const string username = "NLogToSlack-${level}";
             const string webHookUrl = "http://slack.is.awesome.com";
+            const bool excludeLevel = true;
 
             var slackTarget = new TestableSlackTarget
             {
                 Channel = channel,
                 Icon = icon,
                 Username = username,
-                WebHookUrl = webHookUrl
+                WebHookUrl = webHookUrl,
+                ExcludeLevel = excludeLevel
             };
 
             var logEvent = new LogEventInfo { Level = LogLevel.Info, Message = "This is a ${level} message" };
@@ -41,6 +44,7 @@ namespace NLogToSlack.Tests
             slackTarget.Username.Render(logEvent).Should().Be("NLogToSlack-Info");
             slackTarget.Icon.Should().Be(icon);
             slackTarget.WebHookUrl.Should().Be(webHookUrl);
+            slackTarget.ExcludeLevel.Should().BeTrue();
 
 
         }
