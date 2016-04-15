@@ -102,6 +102,7 @@ namespace NLogToSlack.Models
             {
                 client.Headers[HttpRequestHeader.ContentType] = "application/json";
                 client.Encoding = Encoding.UTF8;
+                client.Proxy.Credentials = CredentialCache.DefaultNetworkCredentials;
                 client.UploadString(webHookUrl, "POST", json);
             }
         }
